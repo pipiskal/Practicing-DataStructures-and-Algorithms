@@ -8,15 +8,20 @@ const twoSum = function (arr, givenNumber) {
   let sum = 0;
   let firstNumber;
   let secondNumber;
-  for (let i = 0; i < arr.length; i++) {
+  for (let i = 0; i < arr.length - 1; i++) {
     sum = arr[i] + arr[i + 1];
     if (sum === givenNumber) {
+      console.log(
+        `index : ${i} , value : ${arr[i]}  +  index : ${i + 1} , value : ${
+          arr[i + 1]
+        }  `
+      );
       firstNumber = arr[i];
       secondNumber = arr[i + 1];
-      break;
+      return [firstNumber, secondNumber];
     }
-    return [firstNumber, secondNumber];
   }
+  return `there is no such number`;
 };
 
-console.log(twoSum([1, 3, 7, 9, 2]));
+console.log(twoSum([1, 4, 7, 9, 2, 4, 5, 6, 7], 11));
